@@ -1,4 +1,4 @@
-module.exports = `ecl:hzl byr:1926 iyr:2010
+ecl:hzl byr:1926 iyr:2010
 pid:221225902 cid:61 hgt:186cm eyr:2021 hcl:#7d3b0c
 
 hcl:#efcc98 hgt:178 pid:433543520
@@ -1133,4 +1133,4 @@ ecl:xry
 
 byr:2000
 ecl:hzl eyr:2029
-iyr:2011 hcl:#866857 hgt:74in`
+iyr:2011 hcl:#866857 hgt:74in

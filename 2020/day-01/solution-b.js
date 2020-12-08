@@ -1,4 +1,4 @@
-let entries = require('./input')
+const entries = require('../../readInput')(__dirname).split('\n').map(it => parseInt(it, 10))
 const desiredSum = 2020
 
 // sort it first - we know the sum of 3 will all be towards the front

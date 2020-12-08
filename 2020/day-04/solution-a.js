@@ -1,4 +1,4 @@
-const batch = require('./input')
+const batch = require('../../readInput')(__dirname)
 let passports = batch.split('\n\n')
 const requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid'] // cid is optional
 let validPassportCount = 0

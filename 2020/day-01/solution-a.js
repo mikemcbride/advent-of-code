@@ -1,5 +1,4 @@
-const entries = require('./input')
-
+const entries = require('../../readInput')(__dirname).split('\n').map(it => parseInt(it, 10))
 let lower = []
 let upper = []
 const desiredSum = 2020
