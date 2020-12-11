@@ -34,6 +34,7 @@ function traverse(node) {
     for (let adapter of compatible) {
         count += traverse(adapter)
     }
+    // we store the count at the index so we can use memoization
     path[node.index] = count
     return count
 }

@@ -1,4 +1,8 @@
-const adapters = require('../../readInput')(__dirname).split('\n').concat(['0']).map(x => parseInt(x, 10)).sort((a, b) => a - b)
+const adapters = require('../../readInput')(__dirname)
+    .split('\n')
+    .concat(['0']) // include the outlet
+    .map(x => parseInt(x, 10))
+    .sort((a, b) => a - b)
 adapters.push(Math.max(...adapters) + 3)
 const voltageDiffs = [null, 0, 0, 0]
 for (let i in adapters) {
