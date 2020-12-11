@@ -41,11 +41,13 @@ function traverse(node) {
 function getCompatibleAdapters(node) {
     // start with the next item in the array, then
     // filter out any items that it cannot jump to
-    return adapters.slice(node.index + 1).filter(adapter => isCompatible(node, adapter))
+    return adapters.slice(node.index + 1).filter(adapter => isCompatible(adapter, node))
 }
 
-function isCompatible(first, second) {
-    return first.max >= second.min && first.max <= second.max
+function isCompatible(adapter, node) {
+    // an adapter is compatible if its min is less than or equal to the node's max
+    // and its max is greater than or equal to the node's max
+    return adapter.min <= node.max && adapter.max >= node.max
 }
 
 const answer = traverse(adapters[0])
