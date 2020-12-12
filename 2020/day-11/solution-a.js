@@ -19,13 +19,15 @@ function didGridChange(first, second) {
 
 function getAdjacentOccupiedSeatCount(currentGrid, row, col) {
     let count = 0
-    let rows = [row - 1, row, row + 1].filter(x => x >= 0)
-    let cols = [col - 1, col, col + 1].filter(x => x >= 0)
+    let rows = [-1, 0, 1]
+    let cols = [-1, 0, 1]
     for (let r of rows) {
+        let rx = row + r
         for (let c of cols) {
+            let cx = c + col
             // ignore the current seat
-            if (!(r === row && c === col)) {
-                let val = currentGrid?.[r]?.[c]
+            if (!(r === 0 && c === 0)) {
+                let val = currentGrid?.[rx]?.[cx]
                 if (val === '#') {
                     count += 1
                 }
