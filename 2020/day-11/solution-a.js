@@ -19,15 +19,13 @@ function didGridChange(first, second) {
 
 function getAdjacentOccupiedSeatCount(currentGrid, row, col) {
     let count = 0
-    let rows = [-1, 0, 1]
-    let cols = [-1, 0, 1]
-    for (let r of rows) {
-        let rx = row + r
-        for (let c of cols) {
-            let cx = c + col
+    for (let r of [-1, 0, 1]) {
+        for (let c of [-1, 0, 1]) {
             // ignore the current seat
             if (!(r === 0 && c === 0)) {
-                let val = currentGrid?.[rx]?.[cx]
+                let rx = r + row
+                let cx = c + col
+                let val = getSeatValue(currentGrid, rx, cx)
                 if (val === '#') {
                     count += 1
                 }
@@ -37,15 +35,16 @@ function getAdjacentOccupiedSeatCount(currentGrid, row, col) {
     return count
 }
 
+function getSeatValue(currentGrid, row, col) {
+    return currentGrid?.[row]?.[col]
+}
+
 function getNewSeatValue(currentGrid, row, col) {
     let currentSeatVal = currentGrid[row][col]
-    if (currentSeatVal === '.') {
-        return '.'
-    }
     let adjacentOccupied = getAdjacentOccupiedSeatCount(currentGrid, row, col)
-    if (adjacentOccupied === 0) {
+    if (adjacentOccupied === 0 && currentSeatVal === 'L') {
         return '#'
-    } else if (adjacentOccupied >= 4) {
+    } else if (adjacentOccupied >= 4 && currentSeatVal === '#') {
         return 'L'
     } else {
         return currentSeatVal
